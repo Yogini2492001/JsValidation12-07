@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Validation</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body>
+  <div class="Container">
+    <div class="header">
+      <h2>REGISTRATION FORM</h2>
+    </div>
+    <form class="form" id="form" onsubmit="return validate()" action="login.html">
+
+      <div class="form-control" onkeyup="checkfullname(fullname)">
+        <label>Full Name</label>
+        <input type="text" name="" id="fullname" placeholder="Enter your full name" autocomplete="off" />
+        <small>Error msg</small>
+      </div>
+
+      <div class="form-control" onkeyup="checkfirstname(firstname)">
+        <label>First Name</label>
+        <input type="text" name="" id="firstname" placeholder="Enter your first name" autocomplete="off"
+          onkeypress="return AvoidSpace(event)" />
+        <small>Error msg</small>
+      </div>
+
+      <div class="form-control" onkeyup="checklastname(lastname)">
+        <label>Last Name</label>
+        <input type="text" name="" id="lastname" placeholder="Enter your last name" autocomplete="off"
+          onkeypress="return AvoidSpace(event)" />
+        <small>Error msg</small>
+      </div>
+
+      <div class="form-control" onkeyup="checkuserid(userid)">
+        <label>User Id</label>
+        <input type="text" name="" id="userid" placeholder="Enter your User Id" autocomplete="off"
+          onkeypress="return AvoidSpace(event)" />
+        <small>Error msg</small>
+      </div>
+
+      <div class="form-control" onkeyup="checkEmail(Email)">
+        <label>Email</label>
+        <input type="text" name="" id="Email" placeholder="Enter your Valid email id" autocomplete="off"
+          onkeypress="return AvoidSpace(event)" />
+        <small>Error msg</small>
+      </div>
+
+      <div class="form-control" onkeyup="checkphone(phone)">
+        <label>Phone number</label>
+        <input type="number" name="" id="phone" placeholder="Enter your Phone number" autocomplete="off"  onkeypress="return AvoidSpace(event)" />
+        <small>Error msg</small>
+      </div>
+      <div class="form-control">
+        <label for="profession">Select your Profession:</label>
+        <select class="prof" required>
+          <option value = "1">Student</option>
+          <option value = "2">Employed</option>
+          <option value = "3">Un-employed</option>
+        </select>
+      </div>
+
+      <div class="form-control" onkeyup=" checkurl(url)">
+        <label>Please enter your profile URL</label>
+        <input type="link" name="" id="url" placeholder="https://example.com" autocomplete="off"
+          onkeypress="return AvoidSpace(event)" />
+        <small>Error msg</small>
+      </div>
+
+      <div class="form-control" onkeyup=" checkPassword(password)">
+        <label>Password</label>
+        <input type="password" name="" id="password" placeholder="Enter your Password" autocomplete="off"
+          onkeypress="return AvoidSpace(event)" />
+        <small>Error msg</small>
+      </div>
+
+      <div class="form-control" onkeyup="checkPasswordsMatch(password,confirmpassword)">
+        <label>Confirm Password</label>
+        <input type="password" name="" id="confirmpassword" placeholder="Enter your Password Again " autocomplete="off"
+          onkeypress="return AvoidSpace(event)" />
+        <small>Errormsg</small>
+      </div>
+
+      <div class="form-control">
+        <label id="genderLabel">Gender:</label>
+        <div id="genderSubDiv1">
+          <input type="radio" name="gender" id="radio1" value="Male" onclick="isGenderSelected()" />
+          <label for="radio1">Male</label>
+        </div>
+
+        <div id="genderSubDiv2">
+          <input type="radio" name="gender" id="radio2" value="Female" onclick="isGenderSelected()" />
+          <label for="radio2">Female</label>
+        </div>
+        <div id="genderSubDiv3">
+          <input type="radio" name="gender" id="radio3" value="Other" onclick="isGenderSelected()" />
+          <label for="radio3">Other</label>
+        </div>
+        <p id="showGenderError"></p>
+      </div>
+      <div class="form-control">
+        <label>please select your profile picture</label>
+        <input type="file" id="file" onchange="return imageValidation()" />
+        <div id="imagePreview"></div>
+      </div>
+      <div class="form-control">
+        <label>Please Select File</label>
+        <input type="file" id="docfile" onchange="return fileValidation()" />
+        <div id="filePreview"></div>
+      </div>
+      <div class="">
+      <div class="form-control">
+        <label>Describe yourself </label>
+          <textarea id="inputFeild" cols="50" rows="3" minlength="50"
+            placeholder="Minimum 50 characters necessary" required></textarea>
+      </div>
+      <label for="accept">
+          <input type="checkbox" id="accept" name="accept" value="yes" required />
+          Accept Terms and Conditions
+      </label>
+      </div>
+
+      <input type="submit" value="Click here to submit" class="button">
+      <p>Already Have Account<a href="login.html">Login</a></p>
+
+    </form>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
